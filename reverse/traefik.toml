@@ -1,0 +1,36 @@
+defaultEntryPoints = ["https"]
+
+[web]
+# Port for the status page
+address = ":8080"
+
+# Entrypoints,  https
+[entryPoints]
+  # https is the default
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+
+[retry]
+
+# Enable ACME (Let's Encrypt): automatic SSL
+[acme]
+email = "***********"
+storage = "acme.json"
+entryPoint = "https"
+acmeLogging = true
+[acme.dnsChallenge]
+  provider = "cloudflare"
+  delayBeforeCheck = 0
+
+[[acme.domains]]
+   main = "***********.***********"
+[[acme.domains]]
+   main = "*.***********.***********"
+
+# Enable Docker configuration backend
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "***********.***********"
+watch = true
+exposedbydefault = false
