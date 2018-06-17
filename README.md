@@ -6,22 +6,23 @@ Only HTTPS (Wildcard Certificates)
 
 ## Preq
 - cloudflare DNS
-- Docker compose (v3)
+- Docker compose
 - Docker
 
 ## Init
 
 Clone this repo.
 
-Configure :
-- docker-compose.yml (API key, Password, domain)
-- db.env (conf bdd)
-- reverse\traefik.toml (domain)
+Configure : (replace all * in)
+- docker-compose.yml 
+- db.env 
+- reverse\traefik.toml 
 
 
 ## Start :
 
 ```console
+$  docker-compose build --pull
 $  docker-compose up -d
 ```
 
